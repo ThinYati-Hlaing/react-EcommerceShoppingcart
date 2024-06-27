@@ -1,12 +1,31 @@
 import React, { useContext } from 'react'
 import { DataContext } from '../context/DataContext'
+import Swal from 'sweetalert2';
 
 const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => {
 
     const { removeCarts, updateCarts } = useContext(DataContext);
 
     const handleRemoveCarts = () => {
-        removeCarts(product_id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You want to delete this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                removeCarts(product_id);
+                Swal.fire({
+                title: "Deleted!",
+                text: "Your List has been deleted.",
+                icon: "success"
+              });
+            }
+          });
+      
     }
     return (
         <div className="cart-item group">

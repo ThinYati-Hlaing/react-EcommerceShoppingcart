@@ -16,7 +16,8 @@ const CategoryGroup = () => {
             setReady(true);
         }
         fetchCategory();
-    }, [])
+    }, []);
+
     return (
         <div>
             <section className="category-list py-3 mb-10">
