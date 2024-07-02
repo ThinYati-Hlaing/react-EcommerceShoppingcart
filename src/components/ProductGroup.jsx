@@ -4,7 +4,7 @@ import Product from "./Product";
 import { productApi } from '../api/product';
 import ProductLoader from "./ProductLoader";
 
-const ProductGroup = () => {
+const ProductGroup = ({currentCategory}) => {
     const [products, setProducts] = useState([]);
     const [ready, setReady] = useState(false);
 
@@ -15,7 +15,11 @@ const ProductGroup = () => {
             setReady(true);
         }
         fetchProduct();
-    }, [])
+    }, []);
+
+    const filteredProducts = products.filter(
+        (product) => product.category === currentCategory || currentCategory === "All"
+    );
 
     return (
         <section className="product-list mb-10">
@@ -33,7 +37,7 @@ const ProductGroup = () => {
                         <ProductLoader />
                     </>}
                     {ready &&
-                        products.map((product) => (
+                        filteredProducts.map((product) => (
                             <Product key={product.id} product={product} />
                         ))}
                 </div>

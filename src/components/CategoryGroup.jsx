@@ -3,7 +3,7 @@ import Container from "./Container";
 import Category from "./Category";
 import { categoryApi } from "../api/category";
 
-const CategoryGroup = () => {
+const CategoryGroup = ({setCurrentCategory}) => {
     const [categories, setCategories] = useState([]);
 
     const [ready, setReady] = useState(false);
@@ -18,6 +18,7 @@ const CategoryGroup = () => {
         fetchCategory();
     }, []);
 
+
     return (
         <div>
             <section className="category-list py-3 mb-10">
@@ -27,7 +28,6 @@ const CategoryGroup = () => {
                         id="categoryList"
                         className="flex select-none gap-4 overflow-x-scroll whitespace-nowrap"
                     >
-                        <Category catName="All" />
                         {!ready && <div className="flex gap-3 animate-pulse">
                             <button className="border border-neutral-200 px-4 py-1 flex items-center">
                                 <span className="inline-block bg-neutral-200 w-24 h-4" />
@@ -45,7 +45,7 @@ const CategoryGroup = () => {
                         </div>
                         }
 
-                        {ready && categories.map((category, index) => <Category key={index} catName={category} />)}
+                        {ready && categories.map((category, index) => <Category key={index} catName={category} setCurrentCategory={setCurrentCategory} />)}
                     </div>
                 </Container>
             </section>

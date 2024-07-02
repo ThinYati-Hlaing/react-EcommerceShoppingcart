@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Layout from './components/Layout'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -11,12 +11,14 @@ import { DataContext } from './context/DataContext'
 const App = () => {
 
   const { cartDrawer } = useContext(DataContext);
+  const [currentCategory, setCurrentCategory] = useState('All');
+
   return (
     <Layout>
       <Header />
       <Spacer size={100} />
-      <CategoryGroup />
-      <ProductGroup />
+      <CategoryGroup setCurrentCategory={setCurrentCategory} />
+      <ProductGroup currentCategory={currentCategory} />
       <Footer />
       {cartDrawer && <CartDrawer />}
     </Layout>
