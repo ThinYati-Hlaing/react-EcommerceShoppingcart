@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { DataContext } from '../context/DataContext'
 import Swal from 'sweetalert2';
+import 'animate.css';
 
 const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => {
+    const currentCartRef = useRef(null);
 
     const { removeCarts, updateCarts } = useContext(DataContext);
 
@@ -14,21 +16,25 @@ const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => 
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
             if (result.isConfirmed) {
-                removeCarts(product_id);
+                const currentCartItem = currentCartRef.current;
+                currentCartItem.classList.add("animate__animated", "animate__hinge");
+                currentCartItem.addEventListener("animationed",()=>{
+                    removeCarts(product_id);
+                })
                 Swal.fire({
-                title: "Deleted!",
-                text: "Your List has been deleted.",
-                icon: "success"
-              });
+                    title: "Deleted!",
+                    text: "Your List has been deleted.",
+                    icon: "success"
+                });
             }
-          });
-      
+        });
+
     }
     return (
-        <div className="cart-item group">
+        <div  ref={currentCartRef}  className="cart-item group">
             <div className="w-full mb-5">
                 <img className="cart-item-img h-16 -mb-8 ms-3 relative z-10" src={image} />
                 <div className="border bg-white border-neutral-600 p-3 relative">
