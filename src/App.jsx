@@ -12,13 +12,14 @@ const App = () => {
 
   const { cartDrawer } = useContext(DataContext);
   const [currentCategory, setCurrentCategory] = useState('All');
+  const [searchKeyword, setSearchKeyword] = useState('');
 
   return (
     <Layout>
-      <Header />
+      <Header onSearch={setSearchKeyword} />
       <Spacer size={100} />
       <CategoryGroup setCurrentCategory={setCurrentCategory} />
-      <ProductGroup currentCategory={currentCategory} />
+    <ProductGroup currentCategory={currentCategory} searchKeyword={searchKeyword} />
       <Footer />
       {cartDrawer && <CartDrawer />}
     </Layout>

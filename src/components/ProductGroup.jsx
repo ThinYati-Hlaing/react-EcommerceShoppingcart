@@ -4,7 +4,7 @@ import Product from "./Product";
 import { productApi } from '../api/product';
 import ProductLoader from "./ProductLoader";
 
-const ProductGroup = ({currentCategory}) => {
+const ProductGroup = ({currentCategory, searchKeyword}) => {
     const [products, setProducts] = useState([]);
     const [ready, setReady] = useState(false);
 
@@ -18,8 +18,10 @@ const ProductGroup = ({currentCategory}) => {
     }, []);
 
     const filteredProducts = products.filter(
-        (product) => product.category === currentCategory || currentCategory === "All"
-    );
+        (product) => (product.category === currentCategory || currentCategory === "All") &&
+        (product.title.toLowerCase().includes(searchKeyword) ||
+        product.description.toLowerCase().includes(searchKeyword))
+  );
 
     return (
         <section className="product-list mb-10">
