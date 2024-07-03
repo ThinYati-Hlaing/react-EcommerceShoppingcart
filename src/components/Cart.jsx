@@ -19,11 +19,7 @@ const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => 
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                const currentCartItem = currentCartRef.current;
-                currentCartItem.classList.add("animate__animated", "animate__hinge");
-                currentCartItem.addEventListener("animationed",()=>{
-                    removeCarts(product_id);
-                })
+                removeCarts(product_id);
                 Swal.fire({
                     title: "Deleted!",
                     text: "Your List has been deleted.",
@@ -34,7 +30,9 @@ const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => 
 
     }
     return (
-        <div  ref={currentCartRef}  className="cart-item group">
+        <div  ref={currentCartRef}  
+        className="cart-item group">
+
             <div className="w-full mb-5">
                 <img className="cart-item-img h-16 -mb-8 ms-3 relative z-10" src={image} />
                 <div className="border bg-white border-neutral-600 p-3 relative">

@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import StarRating from './StarRating'
 import { DataContext } from '../context/DataContext'
-import AnimatedImage from './AnimatedImage';
+// import AnimatedImage from './AnimatedImage';
 
 const Product = ({ product: { id, title, price, image, rating: { rate, count }, description, category } }) => {
 
     const { addCart } = useContext(DataContext);
     const [added, setAdded] = useState(false);
 
-    const [animate, setAnimate] = useState(false);
+    // const [animate, setAnimate] = useState(false);
 
     const handleAddToCart = () => {
         if (!added) {
@@ -22,24 +22,25 @@ const Product = ({ product: { id, title, price, image, rating: { rate, count }, 
             }
             addCart(newCart);
             setAdded(true);
-            setAnimate(true);
+            // setAnimate(true);
         }
     }
-    const [info, setInfo] = useState({});
+    // const [info, setInfo] = useState({});
 
-    const imgRef = useRef();
+    // const imgRef = useRef();
 
-    useEffect(() => {
-        setInfo(imgRef.current.getBoundingClientRect())
+    // useEffect(() => {
+    //     setInfo(imgRef.current.getBoundingClientRect())
 
-    }, [])
+    // }, [])
+
     return (
         <div className="product-card group" >
             <img
-                src={image} ref={imgRef}
+                src={image} 
                 className="product-card-img group-hover:-rotate-6 duration-300 transition-transform h-32 -mb-16 ms-5"
             />
-            {animate && <AnimatedImage src={image} info={info} setAnimate={setAnimate} />}
+            {/* {animate && <AnimatedImage src={image} info={info} setAnimate={setAnimate} />} */}
             <div className="border border-neutral-600 p-5">
                 <p className="product-card-title font-heading font-bold line-clamp-1 text-xl mb-2 mt-12">
                     {title}

@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const DataContext = createContext();
 
 const DataContextProvider = ({ children }) => {
-    
+
     const [cartDrawer, setCartDrawer] = useState(false);
     const [carts, setCarts] = useState([]);
 
@@ -14,7 +14,7 @@ const DataContextProvider = ({ children }) => {
     };
 
     const removeCarts = (product_id) =>
-        setCarts(carts.filter((cart) => cart.product_id != product_id));
+        setCarts((prevCarts) => prevCarts.filter((cart) => cart.product_id != product_id));
 
     const updateCarts = (product_id, addQuantity) => {
         setCarts(

@@ -9,9 +9,9 @@ const Header = ({onSearch}) => {
 
     const cartBtnRef = useRef();
 
-    useEffect(() => {
-        setCartBtnInfo(cartBtnRef.current.getBoundingClientRect())
-    }, [])
+    // useEffect(() => {
+    //     setCartBtnInfo(cartBtnRef.current.getBoundingClientRect())
+    // }, [])
     return (
         <header className="border-b-2 z-40 fixed w-full bg-white border-neutral-600">
             <Container>

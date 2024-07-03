@@ -27,7 +27,6 @@ const SearchBar = ({ onSearch }) => {
     const clearSearchInput = () => {
         searchBarInputRef.current.value = "";
         onSearch("");
-        
     };
 
     return (
