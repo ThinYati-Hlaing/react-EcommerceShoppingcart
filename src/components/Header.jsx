@@ -6,7 +6,7 @@ import SearchBar from './SearchBar';
 
 const Header = () => {
 
-    const { toggleCartDrawer, carts, setCartBtnInfo,currentCategory,setSearchKeyword } = useContext(DataContext);
+    const { toggleCartDrawer, carts } = useContext(DataContext);
 
     const cartBtnRef = useRef();
 
