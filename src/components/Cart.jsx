@@ -11,7 +11,7 @@ const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => 
     const handleRemoveCarts = () => {
         Swal.fire({
             title: "Are you sure?",
-            text: "You want to delete this!",
+            text: "You really want to delete this!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -22,7 +22,7 @@ const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => 
                 removeCarts(product_id);
                 Swal.fire({
                     title: "Deleted!",
-                    text: "Your List has been deleted.",
+                    text: "Your Cart has been deleted.",
                     icon: "success"
                 });
             }
