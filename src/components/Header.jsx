@@ -3,9 +3,10 @@ import Container from './Container'
 import { DataContext } from '../context/DataContext'
 import SearchBar from './SearchBar';
 
-const Header = ({onSearch}) => {
 
-    const { toggleCartDrawer, carts, setCartBtnInfo } = useContext(DataContext);
+const Header = () => {
+
+    const { toggleCartDrawer, carts, setCartBtnInfo,currentCategory,setSearchKeyword } = useContext(DataContext);
 
     const cartBtnRef = useRef();
 
@@ -20,7 +21,7 @@ const Header = ({onSearch}) => {
                         <h1 className="font-heading font-bold tracking-wider text-3xl">Shopping Cart</h1>
                     </div>
                     <div className="control-btn flex gap-3">
-                        <SearchBar onSearch={onSearch}/>
+                        <SearchBar />
                         <button ref={cartBtnRef} onClick={toggleCartDrawer} className="border duration-100 active:scale-90 relative animate__animated border-neutral-600 bg-neutral-600 w-12 h-12 flex justify-center items-center" id="cartBtn">
                             <span id="cartCountBadge" className="absolute bg-red-500 text-white w-6 h-6 text-xs right-0 top-0 translate-x-1/2 -translate-y-1/2 rounded-full flex justify-center items-center border-2 border-white"> {carts.length} </span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 stroke-white">

@@ -1,8 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { DataContext } from "../context/DataContext";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
     const [isVisible, setIsVisible] = useState(false);
     const searchBarInputRef = useRef(null);
+    const {setSearchKeyword} = useContext(DataContext)
 
     const toggleSearchBar = () => {
         setIsVisible(!isVisible);
@@ -15,7 +17,7 @@ const SearchBar = ({ onSearch }) => {
 
     const handleSearchInput = (event) => {
         const keyword = event.target.value.toLowerCase();
-        onSearch(keyword);
+        setSearchKeyword(keyword);
     };
 
     const handleKeyDown = (event) => {
@@ -26,7 +28,7 @@ const SearchBar = ({ onSearch }) => {
 
     const clearSearchInput = () => {
         searchBarInputRef.current.value = "";
-        onSearch("");
+        setSearchKeyword("");
     };
 
     return (

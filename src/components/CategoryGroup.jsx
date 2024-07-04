@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "./Container";
 import Category from "./Category";
 import { categoryApi } from "../api/category";
+import { DataContext } from "../context/DataContext";
 
-const CategoryGroup = ({setCurrentCategory}) => {
+const CategoryGroup = () => {
     const [categories, setCategories] = useState([]);
 
     const [ready, setReady] = useState(false);
+
+    const {setCurrentCategory} = useContext(DataContext);
 
     useEffect(() => {
 
@@ -45,7 +48,7 @@ const CategoryGroup = ({setCurrentCategory}) => {
                         </div>
                         }
 
-                        {ready && categories.map((category, index) => <Category key={index} catName={category} setCurrentCategory={setCurrentCategory} />)}
+                        {ready && categories.map((category, index) => <Category key={index} catName={category}  />)}
                     </div>
                 </Container>
             </section>

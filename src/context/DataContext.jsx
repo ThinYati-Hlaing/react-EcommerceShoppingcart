@@ -7,14 +7,24 @@ const DataContextProvider = ({ children }) => {
     const [cartDrawer, setCartDrawer] = useState(false);
     const [carts, setCarts] = useState([]);
 
+    const [cartAdded, setCartAdded] = useState(false);
+    const [addedProducts, setAddedProducts] = useState({})
+
     const [cartBtnInfo, setCartBtnInfo] = useState({});
+
+    const [currentCategory, setCurrentCategory] = useState('All');
+    const [searchKeyword, setSearchKeyword] = useState('');
+
 
     const addCart = (newCart) => {
         setCarts([...carts, newCart]);
+        setAddedProducts((prev) => ({ ...prev, [newCart.product_id]: true }));
     };
 
-    const removeCarts = (product_id) =>
+    const removeCarts = (product_id) => {
         setCarts((prevCarts) => prevCarts.filter((cart) => cart.product_id != product_id));
+        setAddedProducts((prev) => ({ ...prev, [product_id]: false }));
+    }
 
     const updateCarts = (product_id, addQuantity) => {
         setCarts(
@@ -45,10 +55,16 @@ const DataContextProvider = ({ children }) => {
                 carts,
                 setCarts,
                 addCart,
+                addedProducts,
+                setAddedProducts,
                 cartBtnInfo,
                 setCartBtnInfo,
                 removeCarts,
                 updateCarts,
+                currentCategory,
+                setCurrentCategory,
+                searchKeyword,
+                setSearchKeyword
             }}
         >
             {children}

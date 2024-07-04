@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "./Container";
 import Product from "./Product";
 import { productApi } from '../api/product';
 import ProductLoader from "./ProductLoader";
+import { DataContext } from "../context/DataContext";
 
-const ProductGroup = ({currentCategory, searchKeyword}) => {
+const ProductGroup = () => {
     const [products, setProducts] = useState([]);
     const [ready, setReady] = useState(false);
+    const {currentCategory, searchKeyword} = useContext(DataContext);
 
     useEffect(() => {
         const fetchProduct = async () => {

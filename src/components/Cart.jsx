@@ -30,8 +30,8 @@ const Cart = ({ cart: { product_id, image, title, price, quantity, cost } }) => 
 
     }
     return (
-        <div  ref={currentCartRef}  
-        className="cart-item group">
+        <div ref={currentCartRef}
+            className="cart-item group">
 
             <div className="w-full mb-5">
                 <img className="cart-item-img h-16 -mb-8 ms-3 relative z-10" src={image} />
