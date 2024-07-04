@@ -16,7 +16,7 @@ const Header = () => {
     return (
         <header className="border-b-2 z-40 fixed w-full bg-white border-neutral-600">
             <Container>
-                <div className="flex justify-between items-center py-3">
+                <div className="flex justify-between items-center py-1">
                     <div className="brand">
                         <h1 className="font-heading font-bold tracking-wider text-3xl">Shopping Cart</h1>
                     </div>

@@ -10,7 +10,7 @@ const CartDrawer = () => {
             id="cartBox"
         >
             <div className="cart-header border-b-2 border-neutral-600 px-3">
-                <div className="flex justify-between items-center py-3">
+                <div className="flex justify-between items-center py-4">
                     <div>
                         <h1 className="font-heading font-bold text-2xl">Your Items</h1>
                         <p className="font-san text-neutral-400">

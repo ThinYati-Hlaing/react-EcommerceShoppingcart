@@ -7,7 +7,6 @@ const DataContextProvider = ({ children }) => {
     const [cartDrawer, setCartDrawer] = useState(false);
     const [carts, setCarts] = useState([]);
 
-    const [cartAdded, setCartAdded] = useState(false);
     const [addedProducts, setAddedProducts] = useState({})
 
     const [cartBtnInfo, setCartBtnInfo] = useState({});
