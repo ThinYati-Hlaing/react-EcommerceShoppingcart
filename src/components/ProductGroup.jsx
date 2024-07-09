@@ -12,7 +12,7 @@ const ProductGroup = () => {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const res = await productApi.get()
+            const res = await productApi.get("/")
             setProducts(res.data);
             setReady(true);
         }

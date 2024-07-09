@@ -14,7 +14,7 @@ const CategoryGroup = () => {
     useEffect(() => {
 
         const fetchCategory = async () => {
-            const res = await categoryApi.get()
+            const res = await categoryApi.get("/")
             setCategories(res.data);
             setReady(true);
         }
