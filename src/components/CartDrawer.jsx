@@ -50,8 +50,9 @@ const CartDrawer = () => {
             <div className="cart-body flex-grow flex-col flex p-5 overflow-scroll">
                 {carts.length === 0 && (
                     <div className=" m-auto text-center w-3/4">
-                        <img src="/src/image/empty-cart.svg" />
-                        <p className="font-heading">There is no item in cart</p>
+
+                        {/* <img src="/src/image/empty-cart.svg" /> */}
+                        <p className="font-heading font-light text-gray-400 tracking-wider">There is no item in cart</p>
                     </div>
                 )}
                 {carts.length > 0 &&

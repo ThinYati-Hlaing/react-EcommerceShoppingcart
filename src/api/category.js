@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const categoryApi = axios.create({
-  baseURL: `${location.origin}/api/categories`,
+  baseURL: `https://fakestoreapi.com/products/categories`,
   headers: {
     "Content-Type": "application/json",
   },
