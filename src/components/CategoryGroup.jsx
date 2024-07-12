@@ -9,7 +9,7 @@ const CategoryGroup = () => {
 
     const [ready, setReady] = useState(false);
 
-    const {setCurrentCategory} = useContext(DataContext);
+    const { setCurrentCategory } = useContext(DataContext);
 
     useEffect(() => {
 
@@ -47,8 +47,9 @@ const CategoryGroup = () => {
 
                         </div>
                         }
-                         <Category catName="All" />
-                        {ready && categories.map((category, index) => <Category key={index} catName={category}  />)}
+                        {ready && <Category catName="All" />
+                        }
+                        {ready && categories.map((category, index) => <Category key={index} catName={category} />)}
                     </div>
                 </Container>
             </section>
