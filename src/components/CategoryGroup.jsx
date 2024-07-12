@@ -47,7 +47,7 @@ const CategoryGroup = () => {
 
                         </div>
                         }
-
+                         <Category catName="All" />
                         {ready && categories.map((category, index) => <Category key={index} catName={category}  />)}
                     </div>
                 </Container>
